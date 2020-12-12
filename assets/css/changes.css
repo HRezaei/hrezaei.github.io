@@ -1,0 +1,13 @@
+.caption {
+    font-size: 10pt;
+    font-style: italic;
+}
+
+button[type="submit"] {
+    background: #0563bb;
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}

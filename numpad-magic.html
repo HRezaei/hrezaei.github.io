@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/changes.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: MyResume - v2.2.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <h2 class="portfolio-title">The Magic of Numpad</h2>
+          <p>
+            Once upon a time, I noticed that if we type two four-digit numbers according to a circle on the numpad (as the arrows show in the picture), 
+            and calculate their <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">GCD</a>, we will get a coefficient of 11, whatever those numbers be, and whatever direction (either clockwise or anticlockwise) we go through! it is also true 
+            for two eight-digit numbers, or even for a four-digit and an eight-digit one!
+          </p>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-8">
+            <div class="owl-carousel portfolio-details-carousel">
+              <img src="assets/img/portfolio/numpad_with_formula.jpg" class="img-fluid" alt="">
+              <!--img src="assets/img/portfolio/portfolio-details-2.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/portfolio-details-3.jpg" class="img-fluid" alt=""-->
+            </div>
+          </div>
+
+          <div class="col-lg-4 portfolio-info">
+            <!--h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>: Web design</li>
+              <li><strong>Client</strong>: ASU Company</li>
+              <li><strong>Project date</strong>: 01 March, 2020</li>
+              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+            </ul-->  
+            Try yourself:
+            <div class="form-row">
+              <div class="col-md-12 form-group">
+                <input type="text" name="name" class="form-control" id="first_num" placeholder="The First Number" data-rule="minlen:4" data-msg="Please enter at least 4 digits" />
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 form-group">
+                <input type="text" class="form-control" name="email" id="second_num" placeholder="The Second Number" data-rule="minlen:4" data-msg="Please enter at least 4 digits" />
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <button type="submit" id="gcd_calculator">Calculate GCD</button>
+            </div>
+           <div class="form-row">
+              <div class="col-md-12 form-group">
+                <input type="text" disabled name="name" class="form-control" id="gcd_result" placeholder="GCD of the above numbers" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <p>
+            I didn't find it mentioned anywhere and unfortunately I couldn't develop a proof for it. I also shared it with some mathematics students, but
+            they didn't pay attention. So I sent an email to <a href="https://en.wikipedia.org/wiki/Leonard_Adleman">Professor Adleman</a> (the A in the RSA algorithm!) and asked him about the reason behind this. I also asked 
+            the question "Isn't it worthy for further investigation?"
+          </p>
+          <p>
+            The answer is quoted below as it was:<br/>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+            Hi<br/>
+            I can give you a hint.<br/>
+            Write numbers base 10 and then consider the powers of 10 modulo 11.<br/>
+            Good luck<br/>
+            <br/>
+            Professor Leonard Adleman
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <h2 class="portfolio-title">What with other layouts?</h2>
+          <p>
+            But is there really something with the numpad and its layout of keys? Apparently yes!
+          </p>
+          <h2 class="portfolio-title">Furthur Exploration</h2>
+          <p>
+            Anyway, if you're interested in more fun with module operator, take a look at <a href="https://betterexplained.com/articles/fun-with-modular-arithmetic/">this post</a>
+          </p>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details -->
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    let gcd = function(a, b) {
+      if (!b) {
+        return a;
+      }
+
+      return gcd(b, a % b);
+    }
+    $(function(){
+      $('#gcd_calculator').on('click', function(e) {
+
+        let first = $('#first_num').val(),
+          second = $('#second_num').val(),
+          gcd_result = gcd(first, second);
+
+          $('#gcd_result').val(gcd_result);  
+
+      });
+
+    });
+  </script>
+</body>
+
+</html>
