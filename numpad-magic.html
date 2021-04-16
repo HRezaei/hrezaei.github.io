@@ -33,7 +33,16 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -46,9 +55,11 @@
         <div class="row">
           <h2 class="portfolio-title">The Magic of Numpad</h2>
           <p>
-            Once upon a time, I noticed that if we type two four-digit numbers according to a circle on the numpad (as the arrows show in the picture), 
-            and calculate their <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">GCD</a>, we will get a coefficient of 11, whatever those numbers be, and whatever direction (either clockwise or anticlockwise) we go through! it is also true 
-            for two eight-digit numbers, or even for a four-digit and an eight-digit one!
+            Once upon a time, I noticed that if we type two four-digit numbers according to a circle on the numpad (as the arrows
+            show in the picture), and calculate their <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">GCD</a>, 
+            we will get a coefficient of 11, whatever those numbers be, and whatever direction (either clockwise or anticlockwise)
+             we go through! it is also true for two eight-digit numbers, or even for a four-digit and an eight-digit one! Some 
+             examples are provided in the picture below and a GCD calculator is there to ease your further trials.
           </p>
         </div>
         <div class="row">
@@ -72,47 +83,132 @@
             Try yourself:
             <div class="form-row">
               <div class="col-md-12 form-group">
-                <input type="text" name="name" class="form-control" id="first_num" placeholder="The First Number" data-rule="minlen:4" data-msg="Please enter at least 4 digits" />
+                <input type="text" name="name" class="form-control" id="first-num" placeholder="The First Number" data-rule="minlen:4" data-msg="Please enter at least 4 digits" />
                 <div class="validate"></div>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12 form-group">
-                <input type="text" class="form-control" name="email" id="second_num" placeholder="The Second Number" data-rule="minlen:4" data-msg="Please enter at least 4 digits" />
+                <input type="text" class="form-control" name="email" id="second-num" placeholder="The Second Number" data-rule="minlen:4" data-msg="Please enter at least 4 digits" />
                 <div class="validate"></div>
               </div>
             </div>
             <div class="form-row">
-              <button type="submit" id="gcd_calculator">Calculate GCD</button>
+              <button type="submit" id="gcd-calculator">Calculate GCD</button>
             </div>
            <div class="form-row">
               <div class="col-md-12 form-group">
-                <input type="text" disabled name="name" class="form-control" id="gcd_result" placeholder="GCD of the above numbers" />
+                <input type="text" disabled name="name" class="form-control" id="gcd-result" placeholder="GCD of the above numbers" />
               </div>
+              <span id="gcd-msg" class="caption"></span>
             </div>
           </div>
 
         </div>
-        <div class="row">
+        <div class="row" style="display: block;">
           <p>
-            I didn't find it mentioned anywhere and unfortunately I couldn't develop a proof for it. I also shared it with some mathematics students, but
-            they didn't pay attention. So I sent an email to <a href="https://en.wikipedia.org/wiki/Leonard_Adleman">Professor Adleman</a> (the A in the RSA algorithm!) and asked him about the reason behind this. I also asked 
+            All the above examples are anticlockwise🔄. You can now try yourself, with some 4-digit numbers in clockwise🔁 and you
+            see the Greates Common Divisor is still divisable by 11. For example, $GCD(4785, 6589) = 11$. Then try 8-digit numbers clockwise, or 8-digit numbers
+            with first four digits clockwise, and the second four digits anticlockwise, or vice versa. For instance, $GCD(78543652, 
+            56984521) = 11$. You can also try some random order digits to see this pattern does not happen always for any two number
+            entered in a casual way. It happens only if you enter numbers in clock or anticlock wise order and only if number of
+            digits be a coefficient of 4 (i.e. 4x-digit numbers).
+          </p>
+          <p>
+            It seems funny, doesn't it?! I didn't find this pattern mentioned anywhere and unfortunately I couldn't develop a proof for it. I also shared it with some mathematics students, but
+            they didn't pay attention. So I sent an email to <a href="https://en.wikipedia.org/wiki/Leonard_Adleman">Professor Adleman</a> (the A in the famous <a href="https://simple.wikipedia.org/wiki/RSA_algorithm">RSA algorithm</a>!) and asked him about the reason behind this. I also asked 
             the question "Isn't it worthy for further investigation?"
           </p>
           <p>
             The answer is quoted below as it was:<br/>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            Hi<br/>
+
+            <i class="p-quote"><br/>
+              Hi<br/>
             I can give you a hint.<br/>
             Write numbers base 10 and then consider the powers of 10 modulo 11.<br/>
             Good luck<br/>
             <br/>
-            Professor Leonard Adleman
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            Professor Leonard Adleman<br/>
+          </i>
+
+          </p>
+          <p>
+            And for the second question, he replied:
+            <i class="p-quote"><br/>
+              ... yes such patterns are worth investigation. That investigation began with gauss and has gone very far and produced great mathematics through the centuries. 
+            <br/></i>
+          </p>
+          <p>
+            So if you too believe this is interesting and worthy, continue with the remaining of this post. 
+            It isn't a scientific proof, rather, a funny playing with numbers. We try to do what Professor
+            Adleman has hinted and get a sense of what's behind this. 
+          </p>
+          <p>
+            But before following the Adleman's instruction, you can try some random order digits to see this pattern does not happen
+            always for any two number entered in a casual way. It happens only if you enter numbers in clock or anticlock wise order
+            and only if number of digits be a coefficient of 4.
+          </p>
+          <p>
+            Now consider 47855896 as an example. Writing it base 10 we have<br>
+             $47855896 = (4 \times 10^7) + (7 \times 10^6) + (8 \times 10^5) + (5 \times 10^4) + (5 \times 10^3) + (8 \times 10^2) + (9 \times 10^1) + (6 \times 10^0)$ <br>
+             and powers of 10 modulo 11 are as follows: <br>
+            $({\color{green}4} \times 10^7) \bmod 11 = 7 = 11 - {\color{green}4}$<br>
+            $({\color{orange}7} \times 10^6) \bmod 11 = {\color{orange}7}$<br>
+            $({\color{green}8} \times 10^5) \bmod 11 = 3 = 11 - {\color{green}8}$<br>
+            $({\color{orange}5} \times 10^4) \bmod 11 = {\color{orange}5}$<br>
+            $({\color{green}5} \times 10^3) \bmod 11 = 6 = 11 - {\color{green}5}$<br>
+            $({\color{orange}8} \times 10^2) \bmod 11 = {\color{orange}8}$<br>
+            $({\color{green}9} \times 10^1) \bmod 11 = 2 = 11 - {\color{green}9}$<br>
+            $({\color{orange}6} \times 10^0) \bmod 11 = {\color{orange}6}$<br>
+            Did you notice the pattern? For the odd powers of 10, the modulo 11 is 11 minus base digit, and for the even powers it is 
+            just the base digit (What for numbers other than 11?!). So you are now able to calculate large numbers module 11 very
+            quickly in your mind! For instance <br/>
+            $500,000,000,000,000,000 \bmod 11 = ?$ <br/>
+            The above number is $5 \times 10^{17}$ and since 17 is odd, its modulo 11 is $11 - 5 = 6$. What for $47855896 \bmod 11$? Adding up the remainings
+            calulated above, we will have $7+7+3+5+6+8+2+6=44$, and $44 \bmod 11 = 0$ so $47855896 \bmod 11 = 0$. OK?! the same is true for other
+            numbers in the picture or any others entered in the same way.
+          </p>
+          <p>
+            OK, by far we have learnt that any four-digit number typed on numpad in 🔄 or 🔁 order, is divisible by 11. And we also learned 
+            a new rule which helps us calculate module 11 rapidly and that's fine, but the answer to our own question isn't clear yet, at least
+            for me. What is the principle behind this arrangment of digits which makes every such a number divisible by 11 and hence GCD of 
+            each pair of those numbers a coefficient of 11? Maybe there is a simple and well-known justification for this,
+            but the perspective I'm looking to this problem from, has precluded me from perceiving it! Whatever it might be,
+            it sounds peculiar and strange at the moment. I would be happy if anyone can explain further, why this happens and what is the relationship between this layout
+            and that result?!
           </p>
           <h2 class="portfolio-title">What with other layouts?</h2>
           <p>
-            But is there really something with the numpad and its layout of keys? Apparently yes!
+          So is there really something with the numpad and its layout of keys? Interestingly no! Although I encountered it while
+          toying with numpad, and the title of this post might seem deceptive, you can alter the layout of numpad, and you will see
+          the same pattern happens in many of them. For example, swapping the rows or columns of numpad interchangably, you'll
+          end up with a new layout, and if you type two 4x-digit numbers in 🔄 or 🔁 order, their GCD will be a multiply of 11 
+          (see the picture below).
+          <div class="row text-center">
+            <img src="assets/img/portfolio/numpadChangedRows.jpg" class="img-fluid mx-auto d-block" alt="">
+            <span class="caption mx-auto d-block">These three layouts are different from that of numpad but they are similar in regard to GCD and
+               4x-digit numbers.</span>
+          </div>
+
+
+          <img src="assets/img/portfolio/layout2.jpg" class="img-fluid" alt="">
+
+          <img src="assets/img/portfolio/layout3.jpg" class="img-fluid" alt="">
+
+          <img src="assets/img/portfolio/layout6.jpg" class="img-fluid" alt="">
+
+          <img src="assets/img/portfolio/layout5.jpg" class="img-fluid" alt="">
+
+          
+          <img src="assets/img/portfolio/layout4.jpg" class="img-fluid" alt="">
+          <span class="caption mx-auto d-block">In this layout $GCD(1265, 7843) = 253$</span>
+
+
+          <img src="assets/img/portfolio/layout-plus.jpg" class="img-fluid" alt="">
+
+          <img src="assets/img/portfolio/layout-plus1.jpg" class="img-fluid" alt="">
+
+          https://uxdesign.cc/a-brief-history-of-the-numeric-keypad-59112cbf4c49
           </p>
           <h2 class="portfolio-title">Furthur Exploration</h2>
           <p>
@@ -152,14 +248,19 @@
       return gcd(b, a % b);
     }
     $(function(){
-      $('#gcd_calculator').on('click', function(e) {
+      $('#gcd-calculator').on('click', function(e) {
 
-        let first = $('#first_num').val(),
-          second = $('#second_num').val(),
-          gcd_result = gcd(first, second);
+        let first = $('#first-num').val(),
+          second = $('#second-num').val(),
+          gcdResult = gcd(first, second);
 
-          $('#gcd_result').val(gcd_result);  
-
+          $('#gcd-result').val(gcdResult);  
+          if(gcdResult%11) {
+            $('#gcd-msg').text('You probably didn\'t entered the digits in a circular sequence, follow two examples shown in the picture.');   
+          }
+          else {
+            $('#gcd-msg').text('As you can see, it\'s a coefficient of 11. Isn\'t it interesting?');   
+          }
       });
 
     });

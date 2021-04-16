@@ -11,3 +11,22 @@ button[type="submit"] {
     transition: 0.4s;
     border-radius: 50px;
 }
+
+.facts .count-box span {
+   display: inline;
+}
+
+.p-quote {
+    display: block;
+    padding-left: 20px;
+}
+
+.p-quote:before {
+    content: "\edd5";
+    font-family: 'boxicons'!important;
+}
+
+.p-quote::after {
+    content: "\edd6";
+    font-family: 'boxicons'!important;
+}

@@ -177,7 +177,9 @@
     autoplay: true,
     dots: true,
     loop: true,
-    items: 1
+    items: 1,
+    autoplayTimeout: 15000,
+    autoplayHoverPause: true
   });
 
   // Portfolio details carousel
